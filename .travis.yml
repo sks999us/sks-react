@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t sks/sks-react -f Dockerfile.dev .
+
+
+script:
+  - docker run -e CI=true sks/sks-react npm run test
